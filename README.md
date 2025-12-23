@@ -1,5 +1,8 @@
 # 🤝 Znajdź Znajomych (Find Friends) – Aplikacja Streamlit
 
+![Status](https://img.shields.io/badge/Status-Deployed-success)
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-red)
 
 ## 📄 O Projekcie
 **Find Friends** to interaktywna aplikacja webowa, która pomaga użytkownikom znaleźć osoby o podobnych profilach lub zainteresowaniach w bazie danych.
