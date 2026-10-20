@@ -1,58 +1,33 @@
-# 🤝 Znajdź Znajomych (Find Friends) – Aplikacja Streamlit
+# 🤝 Znajdź Znajomych
+
+Aplikacja Streamlit, która na podstawie krótkiej ankiety przypisuje użytkownika do grupy podobnych osób (klastrowanie).
 
 ![Status](https://img.shields.io/badge/Status-Deployed-success)
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-red)
 
-## 📄 O Projekcie
-**Find Friends** to interaktywna aplikacja webowa, która pomaga użytkownikom znaleźć osoby o podobnych profilach lub zainteresowaniach w bazie danych.
+## Jak to działa
 
-Projekt ten jest przykładem zastosowania języka Python do budowy prostego systemu rekomendacyjnego (matching system) oraz prezentacji wyników w przyjaznym interfejsie graficznym.
+1. W panelu bocznym podajesz wiek, wykształcenie, ulubione zwierzęta, ulubione miejsce i płeć.
+2. Model klastrowania PyCaret (`welcome_survey_clustering_pipeline_v2.pkl`), wytrenowany na danych z ankiety powitalnej (`welcome_survey_simple_v2.csv`), przypisuje Cię do jednej z grup.
+3. Nazwy i opisy grup są w pliku `welcome_survey_cluster_names_and_descriptions_v2.json`. Przygotowano je w notebooku `Tworzymy nazwane klastry.ipynb` z użyciem modelu OpenAI.
 
-### 🎯 Cel
-Celem projektu było stworzenie narzędzia, które:
-1.  Pobiera dane od użytkownika (np. poprzez formularz).
-2.  Przeszukuje dostępny zbiór danych (dataset).
-3.  Zwraca najlepiej dopasowane wyniki w czasie rzeczywistym.
+Aplikacja ma trzy zakładki:
 
----
+* **Analiza graficzna:** opis Twojej grupy, liczba osób i histogramy cech (wiek, wykształcenie, zwierzęta, miejsce, płeć).
+* **Analiza statystyczna:** tabele liczności cech w każdej grupie.
+* **Przegląd danych:** wykres sunburst z podziałem na grupy oraz opisy wszystkich grup.
 
-## ⚙️ Funkcjonalności Aplikacji
-* **Interaktywny Formularz:** Użytkownik może zdefiniować kryteria wyszukiwania (np. wiek, lokalizacja, zainteresowania) za pomocą suwaków i list rozwijanych.
-* **Algorytm Dopasowania:** Aplikacja filtruje bazę danych i sortuje wyniki, aby znaleźć "najbliższych sąsiadów" lub osoby spełniające określone warunki.
-* **Wizualizacja:** Prezentacja znalezionych profili w czytelnej formie (tabela lub karty).
+## Uruchomienie
 
----
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-## 🛠️ Stack Technologiczny
+## Uwagi
 
-### Backend & Logic
-* **Python:** Logika aplikacji.
-* **Pandas:** Wczytywanie i filtrowanie danych (DataFrames).
+* Aplikacja na Streamlit Community Cloud usypia się po okresie nieaktywności. Po wejściu wybierz "Yes, get this app back up".
+* Fragment kodu z bazą wektorową Qdrant w `app.py` jest wyłączony (zakomentowany) i aplikacja go nie używa.
 
-### Frontend & Deployment
-* **Streamlit:** Framework zamieniający skrypty Pythona w interaktywną stronę internetową.
-* **Streamlit Community Cloud:** Platforma chmurowa, na której aplikacja została wdrożona i udostępniona publicznie.
-
----
-
-## 🖥️ Jak uruchomić lokalnie?
-Jeśli chcesz zobaczyć kod i uruchomić go na własnym komputerze:
-
-1.  **Sklonuj repozytorium:**
-    ```bash
-    git clone [https://github.com/MichalBorek1983/Znajdz_znajomych.git](https://github.com/MichalBorek1983/Znajdz_znajomych.git)
-    cd Znajdz_znajomych
-    ```
-
-2.  **Zainstaluj wymagane biblioteki:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **Uruchom aplikację:**
-    ```bash
-    streamlit run app.py
-    ```
----
 *Autor: Michał Borek*
